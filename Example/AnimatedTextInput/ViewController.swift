@@ -10,12 +10,14 @@ class ViewController: UIViewController {
         let inputAccessoryButton = UIButton(type: .system)
         inputAccessoryButton.setTitleColor(UIColor.white, for: .normal)
         inputAccessoryButton.setTitle("Input accessory view", for: .normal)
-        inputAccessoryButton.frame.size.height = 40
+        inputAccessoryButton.frame.size.height = 200
         inputAccessoryButton.backgroundColor = UIColor.blue.withAlphaComponent(0.4)
+        
 
         textInputs[0].accessibilityLabel = "standard_text_input"
         textInputs[0].placeHolderText = "Normal text"
         textInputs[0].inputAccessoryView = inputAccessoryButton
+        textInputs[0].backgroundColor = UIColor.green
         if #available(iOS 11.0, *) {
             textInputs[1].textContentType = .password
         }
@@ -73,8 +75,14 @@ class ViewController: UIViewController {
 }
 
 struct CustomTextInputStyle: AnimatedTextInputStyle {
+    var cornerRadius: CGFloat = 10
+    var borderWidth: CGFloat = 4
+    
+    var corner: UIRectCorner = [.bottomLeft, .bottomRight]
+    
+    
     let placeholderInactiveColor = UIColor.gray
-    let activeColor = UIColor.orange
+    let activeColor = UIColor.red
     let inactiveColor = UIColor.gray.withAlphaComponent(0.3)
     let lineInactiveColor = UIColor.gray.withAlphaComponent(0.3)
     let lineActiveColor = UIColor.orange
@@ -89,6 +97,6 @@ struct CustomTextInputStyle: AnimatedTextInputStyle {
     let rightMargin: CGFloat = 0
     let bottomMargin: CGFloat = 10
     let yHintPositionOffset: CGFloat = 7
-    let yPlaceholderPositionOffset: CGFloat = 0
+    let yPlaceholderPositionOffset: CGFloat = -5
     public let textAttributes: [String: Any]? = nil
 }

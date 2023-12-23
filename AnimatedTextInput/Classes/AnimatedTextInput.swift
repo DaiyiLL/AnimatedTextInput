@@ -53,7 +53,7 @@ open class AnimatedTextInput: UIControl {
         }
     }
 
-    open var placeHolderText = "Test" {
+    open var placeHolderText = "" {
         didSet {
             placeholderLayer.string = placeHolderText
             textInput.view.accessibilityLabel = placeHolderText
@@ -75,7 +75,7 @@ open class AnimatedTextInput: UIControl {
         }
     }
 
-    open var style: AnimatedTextInputStyle = AnimatedTextInputStyleBlue() {
+    open var style: AnimatedTextInputStyle = AnimatedTextInput.DefaultStyle() {
         didSet {
             configureStyle()
         }
@@ -194,7 +194,25 @@ open class AnimatedTextInput: UIControl {
             textInput.contentInset = insets
         }
     }
+    
+    open var isHiddenLine: Bool = false {
+        didSet {
+            self.lineView.isHidden = self.isHiddenLine
+        }
+    }
+    
+    open var activateBgIcon: UIImage? {
+        didSet {
+            updateBgView()
+        }
+    }
+    open var inactivateBgIcon: UIImage? {
+        didSet {
+            updateBgView()
+        }
+    }
 
+    fileprivate let bgView = UIImageView()
     fileprivate let lineView = AnimatedLine()
     fileprivate let placeholderLayer = CATextLayer()
     fileprivate let counterLabel = UILabel()
@@ -210,6 +228,7 @@ open class AnimatedTextInput: UIControl {
     fileprivate var disclosureViewWidthConstraint: NSLayoutConstraint!
     fileprivate var disclosureView: UIView?
     fileprivate var placeholderErrorText: String?
+    fileprivate weak var borderLayer: CAShapeLayer?
 
     fileprivate var placeholderPosition: CGPoint {
         let hintPosition = CGPoint(
@@ -254,6 +273,11 @@ open class AnimatedTextInput: UIControl {
     open override func layoutSubviews() {
         super.layoutSubviews()
         layoutPlaceholderLayer()
+        if (bgView.frame.equalTo(bounds)) {
+            return
+        }
+        bgView.frame = bounds
+        updateBgView()
     }
 
     fileprivate func layoutPlaceholderLayer() {
@@ -282,6 +306,7 @@ open class AnimatedTextInput: UIControl {
     }
 
     fileprivate func setupCommonElements() {
+        self.addSubview(self.bgView)
         addLine()
         addPlaceHolder()
         addTapGestureRecognizer()
@@ -321,6 +346,34 @@ open class AnimatedTextInput: UIControl {
         textInput.view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(textInput.view)
         invalidateIntrinsicContentSize()
+    }
+    
+    fileprivate func updateBgView() {
+        var color = self.style.activeColor
+        if self.isActive {
+            self.bgView.image = self.activateBgIcon
+        } else {
+            self.bgView.image = self.inactivateBgIcon
+            color = self.style.inactiveColor
+        }
+        self.borderLayer?.isHidden = true
+        guard self.style.lineHeight > 0, self.style.borderWidth > 0 else {
+            return
+        }
+        self.borderLayer?.isHidden = false
+        self.borderLayer?.strokeColor = color.cgColor
+        self.borderLayer?.frame = self.bgView.bounds
+        
+        if let _ = self.borderLayer  {return}
+        let path = UIBezierPath(roundedRect: self.bgView.bounds, byRoundingCorners: self.style.corner, cornerRadii: CGSize(width: self.style.cornerRadius, height: self.style.cornerRadius))
+        let borderLayer = CAShapeLayer()
+        borderLayer.frame = self.bgView.bounds
+        borderLayer.path = path.cgPath
+        borderLayer.fillColor = UIColor.clear.cgColor
+        borderLayer.strokeColor = color.cgColor
+        borderLayer.lineWidth = self.style.lineHeight
+        self.bgView.layer.addSublayer(borderLayer)
+        self.borderLayer = borderLayer
     }
 
     fileprivate func updateCounter() {
@@ -485,6 +538,7 @@ open class AnimatedTextInput: UIControl {
         } else {
             isPlaceholderAsHint ? configurePlaceholderAsInactiveHint() : configurePlaceholderAsDefault()
         }
+        updateBgView()
     }
 
     open func showCharacterCounterLabel(with maximum: Int? = nil) {

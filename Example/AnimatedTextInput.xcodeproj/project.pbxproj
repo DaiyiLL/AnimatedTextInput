@@ -286,7 +286,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AnimatedTextInput_Example/Pods-AnimatedTextInput_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AnimatedTextInput_Example/Pods-AnimatedTextInput_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AnimatedTextInput/AnimatedTextInput.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -295,7 +295,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnimatedTextInput_Example/Pods-AnimatedTextInput_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnimatedTextInput_Example/Pods-AnimatedTextInput_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B3BF15F5F058B84F66980FC9 /* [CP] Embed Pods Frameworks */ = {
@@ -304,7 +304,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AnimatedTextInput_Tests/Pods-AnimatedTextInput_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AnimatedTextInput_Tests/Pods-AnimatedTextInput_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AnimatedTextInput/AnimatedTextInput.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
 				"${BUILT_PRODUCTS_DIR}/KIF/KIF.framework",
@@ -317,7 +317,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnimatedTextInput_Tests/Pods-AnimatedTextInput_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnimatedTextInput_Tests/Pods-AnimatedTextInput_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CAC4E7ECBA55CDF296E15A0A /* [CP] Check Pods Manifest.lock */ = {

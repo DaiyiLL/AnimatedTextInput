@@ -5,6 +5,7 @@ inhibit_all_warnings!
 
 target 'AnimatedTextInput_Example' do
     pod 'AnimatedTextInput', :path => '../'
+    
 end
 
 target 'AnimatedTextInput_Tests' do
