@@ -30,6 +30,13 @@ class TestViewController: UIViewController {
         input.placeHolderText = "Please Enter your phone"
         input.isHiddenLine = true
         self.view.addSubview(input)
+        
+        let filed = UITextField(frame: CGRect(x: 10, y: 178, width: self.view.bounds.width - 20, height: 58))
+        filed.borderStyle = UITextField.BorderStyle.roundedRect
+        self.view.addSubview(filed)
+        DispatchQueue.main.async {
+            input.text = "123456788"
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
