@@ -470,6 +470,7 @@ open class AnimatedTextInput: UIControl {
         DispatchQueue.main.async {
             self.animatePlaceholder(to: self.configurePlaceholderAsActiveHint)
         }
+        updateBgView()
         
         return firstResponder
     }
@@ -489,7 +490,7 @@ open class AnimatedTextInput: UIControl {
         if let textInputError = textInput as? TextInputError {
             textInputError.removeErrorHintMessage()
         }
-
+        updateBgView()
         // If the placeholder is showing an error we want to keep this state. Otherwise revert to inactive state.
         if placeholderErrorText == nil {
             animateToInactiveState()
