@@ -14,15 +14,23 @@ open class AnimatedTextInput: UIControl {
 
     public typealias AnimatedTextInputType = AnimatedTextInputFieldConfigurator.AnimatedTextInputType
 
-    open var tapAction: (() -> Void)?
+    
     open  weak var delegate: AnimatedTextInputDelegate?
     open fileprivate(set) var isActive = false
+    open var isForeceActive = false {
+        didSet {
+            if isForeceActive == false {
+                self.resignFirstResponder()
+            }
+        }
+    }
 
     open var type: AnimatedTextInputType = .standard {
         didSet {
             configureType()
         }
     }
+    open var tapAction: (() -> Void)?
     
     open var autocorrection: UITextAutocorrectionType = .no {
         didSet {
@@ -443,10 +451,17 @@ open class AnimatedTextInput: UIControl {
 
     @objc fileprivate func viewWasTapped(sender: UIGestureRecognizer) {
         if let tapAction = tapAction {
-            tapAction()
+            becomeFirstResponder()
         } else {
             becomeFirstResponder()
         }
+    }
+    
+    open override func endEditing(_ force: Bool) -> Bool {
+        if force {
+            self.resignFirstResponder()
+        }
+        return super.endEditing(force)
     }
 
     fileprivate func styleDidChange() {
@@ -469,10 +484,21 @@ open class AnimatedTextInput: UIControl {
         placeholderErrorText = nil
         DispatchQueue.main.async {
             self.animatePlaceholder(to: self.configurePlaceholderAsActiveHint)
+            self.updateBgView()
+            self.tapAction?()
         }
-        updateBgView()
         
         return firstResponder
+    }
+    
+    @discardableResult fileprivate func becomeFirstResponderNoInput() {
+        isActive = true
+        counterLabel.textColor = style.activeColor
+        placeholderErrorText = nil
+        DispatchQueue.main.async {
+            self.animatePlaceholder(to: self.configurePlaceholderAsActiveHint)
+            self.updateBgView()
+        }
     }
 
     override open var isFirstResponder: Bool {
@@ -480,6 +506,9 @@ open class AnimatedTextInput: UIControl {
     }
 
     @discardableResult override open func resignFirstResponder() -> Bool {
+        if isActive, isForeceActive {
+            return false
+        }
         guard !isResigningResponder else { return true }
         isActive = false
         isResigningResponder = true

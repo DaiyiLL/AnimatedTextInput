@@ -10,6 +10,8 @@ import UIKit
 import AnimatedTextInput
 
 class TestViewController: UIViewController {
+    weak var textInput: AnimatedTextInput?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -29,20 +31,40 @@ class TestViewController: UIViewController {
         let input = AnimatedTextInput(frame: CGRect(x: 10, y: 100, width: self.view.bounds.width - 20, height: 58), style: style)
         input.placeHolderText = "Please Enter your phone"
         input.isHiddenLine = true
+        input.configureInputView(inputiew: UIView())
+        input.isForeceActive = true
+        input.tapAction = { [weak self] in
+            print("1111111111")
+        }
+        input.clearButtonMode = .never
         self.view.addSubview(input)
+        textInput = input
         
         let filed = UITextField(frame: CGRect(x: 10, y: 178, width: self.view.bounds.width - 20, height: 58))
         filed.borderStyle = UITextField.BorderStyle.roundedRect
         self.view.addSubview(filed)
+        
+        let button = UIButton(type: .custom)
+        button.setTitle("恢复", for: .normal)
+        button.backgroundColor = UIColor.green
+        button.frame = CGRect(x: 10, y: 258, width: self.view.bounds.width - 20, height: 58)
+        self.view.addSubview(button)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        
         DispatchQueue.main.async {
             input.text = "123456788"
         }
+    }
+    
+    @objc private func buttonAction(_ senmder: UIButton) {
+        self.textInput?.isForeceActive = false
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
     }
+    
 }
 
  
