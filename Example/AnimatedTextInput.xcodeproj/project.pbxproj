@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		049C97422B3723E500747C05 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C97412B3723E500747C05 /* TestViewController.swift */; };
+		04D1169B2B37F02D00331BA3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C97412B3723E500747C05 /* TestViewController.swift */; };
 		1130556EBCA01865042D1E5A /* Pods_AnimatedTextInput_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E14D63F8D2646EDC20D4FE /* Pods_AnimatedTextInput_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -32,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		02E14D63F8D2646EDC20D4FE /* Pods_AnimatedTextInput_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimatedTextInput_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		049C97412B3723E500747C05 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		2DC2D55F8CB2C4B7A26D19CC /* Pods-AnimatedTextInput_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimatedTextInput_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnimatedTextInput_Example/Pods-AnimatedTextInput_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* AnimatedTextInput_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimatedTextInput_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				049C97412B3723E500747C05 /* TestViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -226,6 +230,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -376,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				049C97422B3723E500747C05 /* TestViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +392,7 @@
 			files = (
 				C7FD31E41D51233900A9C8C7 /* ViewController.swift in Sources */,
 				C70CECE21EB0E2B700BB92A9 /* SnapshotTests.swift in Sources */,
+				04D1169B2B37F02D00331BA3 /* TestViewController.swift in Sources */,
 				955FE9E51D510DA80022C0EF /* AnimatedTextInputTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

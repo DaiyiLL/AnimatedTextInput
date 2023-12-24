@@ -25,7 +25,7 @@ public protocol AnimatedTextInputStyle {
 }
 
 public extension AnimatedTextInput {
-    public struct DefaultStyle: AnimatedTextInputStyle {
+    public class DefaultStyle: AnimatedTextInputStyle {
         private static let customBlack = UIColor(red: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0)
         public var activeColor: UIColor = AnimatedTextInput.DefaultStyle.customBlack
         public var placeholderInactiveColor: UIColor = UIColor.gray.withAlphaComponent(0.5)
@@ -53,113 +53,112 @@ public extension AnimatedTextInput {
         
         public init() { }
         
-        public mutating func setCorner(_ corner: UIRectCorner) -> AnimatedTextInput.DefaultStyle {
-            self.corner = corner
-            return self
-        }
-        public mutating func setV(activeColor: UIColor) -> AnimatedTextInput.DefaultStyle {
+        public func setV(activeColor: UIColor) -> AnimatedTextInput.DefaultStyle {
             self.activeColor = activeColor
             return self
         }
         
-        public mutating func setV(placeholderInactiveColor: UIColor) -> AnimatedTextInput.DefaultStyle {
+        public func setV(placeholderInactiveColor: UIColor) -> AnimatedTextInput.DefaultStyle {
             self.placeholderInactiveColor = placeholderInactiveColor
             return self
         }
         
-        public mutating func setV(inactiveColor: UIColor) -> AnimatedTextInput.DefaultStyle {
+        public func setV(inactiveColor: UIColor) -> AnimatedTextInput.DefaultStyle {
             self.inactiveColor = inactiveColor
             return self
         }
         
-        public mutating func setV(lineInactiveColor: UIColor) -> AnimatedTextInput.DefaultStyle {
+        public func setV(lineInactiveColor: UIColor) -> AnimatedTextInput.DefaultStyle {
             self.lineInactiveColor = lineInactiveColor
             return self
         }
         
-        public mutating func setV(lineActiveColor: UIColor) -> AnimatedTextInput.DefaultStyle {
+        public func setV(lineActiveColor: UIColor) -> AnimatedTextInput.DefaultStyle {
             self.lineActiveColor = lineActiveColor
             return self
         }
         
-        public mutating func setV(lineHeight: CGFloat) -> AnimatedTextInput.DefaultStyle {
+        public func setV(lineHeight: CGFloat) -> AnimatedTextInput.DefaultStyle {
             self.lineHeight = lineHeight
             return self
         }
         
-        public mutating func setV(errorColor: UIColor) -> AnimatedTextInput.DefaultStyle {
+        public func setV(errorColor: UIColor) -> AnimatedTextInput.DefaultStyle {
             self.errorColor = errorColor
             return self
         }
         
-        public mutating func setV(textInputFont: UIFont) -> AnimatedTextInput.DefaultStyle {
+        public func setV(textInputFont: UIFont) -> AnimatedTextInput.DefaultStyle {
             self.textInputFont = textInputFont
             return self
         }
         
-        public mutating func setV(textInputFontColor: UIColor) -> AnimatedTextInput.DefaultStyle {
+        public func setV(textInputFontColor: UIColor) -> AnimatedTextInput.DefaultStyle {
             self.textInputFontColor = textInputFontColor
             return self
         }
         
-        public mutating func setV(placeholderMinFontSize: CGFloat) -> AnimatedTextInput.DefaultStyle {
+        public func setV(placeholderMinFontSize: CGFloat) -> AnimatedTextInput.DefaultStyle {
             self.placeholderMinFontSize = placeholderMinFontSize
             return self
         }
         
-        public mutating func setV(counterLabelFont: UIFont) -> AnimatedTextInput.DefaultStyle {
+        public func setV(counterLabelFont: UIFont) -> AnimatedTextInput.DefaultStyle {
             self.counterLabelFont = counterLabelFont
             return self
         }
         
-        public mutating func setV(leftMargin: CGFloat) -> AnimatedTextInput.DefaultStyle {
+        public func setV(leftMargin: CGFloat) -> AnimatedTextInput.DefaultStyle {
             self.leftMargin = leftMargin
             return self
         }
         
-        public mutating func setV(topMargin: CGFloat) -> AnimatedTextInput.DefaultStyle {
+        public func setV(topMargin: CGFloat) -> AnimatedTextInput.DefaultStyle {
             self.topMargin = topMargin
             return self
         }
         
-        public mutating func setV(rightMargin: CGFloat) -> AnimatedTextInput.DefaultStyle {
+        public func setV(rightMargin: CGFloat) -> AnimatedTextInput.DefaultStyle {
             self.rightMargin = rightMargin
             return self
         }
         
-        public mutating func setV(bottomMargin: CGFloat) -> AnimatedTextInput.DefaultStyle {
+        public func setV(bottomMargin: CGFloat) -> AnimatedTextInput.DefaultStyle {
             self.bottomMargin = bottomMargin
             return self
         }
         
-        public mutating func setV(yHintPositionOffset: CGFloat) -> AnimatedTextInput.DefaultStyle {
+        public func setV(yHintPositionOffset: CGFloat) -> AnimatedTextInput.DefaultStyle {
             self.yHintPositionOffset = yHintPositionOffset
             return self
         }
         
-        public mutating func setV(yPlaceholderPositionOffset: CGFloat) -> AnimatedTextInput.DefaultStyle { self.yPlaceholderPositionOffset = yPlaceholderPositionOffset
+        public func setV(yPlaceholderPositionOffset: CGFloat) -> AnimatedTextInput.DefaultStyle { self.yPlaceholderPositionOffset = yPlaceholderPositionOffset
             return self
         
         }
         
-        public mutating func setV(textAttributes: [String : Any]?) -> AnimatedTextInput.DefaultStyle {
+        public func setV(textAttributes: [String : Any]?) -> AnimatedTextInput.DefaultStyle {
             self.textAttributes = textAttributes
             return self
         }
                      
-        public mutating func setV(borderWidth: CGFloat) -> AnimatedTextInput.DefaultStyle {
-            self.borderWidth = borderWidth
-            return self
+        public func setV(borderWidth: CGFloat) -> AnimatedTextInput.DefaultStyle {
+            var style = self
+            style.borderWidth = borderWidth
+            return style
         }
                      
-        public mutating func setV(cornerRadius: CGFloat) -> AnimatedTextInput.DefaultStyle {
-            self.cornerRadius = cornerRadius
-            return self
+        public func setV(cornerRadius: CGFloat) -> AnimatedTextInput.DefaultStyle {
+            var style = self
+            style.cornerRadius = cornerRadius
+            return style
         }
                      
-        public mutating func setV(corner: UIRectCorner) -> AnimatedTextInput.DefaultStyle {
-            self.corner = corner
-            return self
+        public func setV(corner: UIRectCorner) -> AnimatedTextInput.DefaultStyle {
+            var style = self
+            style.corner = corner
+            return style
         }
     }
 }

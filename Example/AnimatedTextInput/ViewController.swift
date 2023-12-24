@@ -72,6 +72,11 @@ class ViewController: UIViewController {
             input.resignFirstResponder()
         }
     }
+    
+    @IBAction func pushToNext(_ sender: Any) {
+        self.navigationController?.pushViewController(TestViewController(), animated: true)
+    }
+    
 }
 
 struct CustomTextInputStyle: AnimatedTextInputStyle {

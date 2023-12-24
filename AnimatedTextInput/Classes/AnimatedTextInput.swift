@@ -247,6 +247,10 @@ open class AnimatedTextInput: UIControl {
 
         setupCommonElements()
     }
+    public convenience init(frame: CGRect, style: AnimatedTextInputStyle) {
+        self.init(frame: frame)
+        self.style = style
+    }
 
     public func configureInputView(inputiew: UIView!) {
         textInput.configureInputView(newInputView : inputiew)

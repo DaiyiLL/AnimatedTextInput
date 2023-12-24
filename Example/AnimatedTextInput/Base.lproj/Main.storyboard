@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rhf-sS-cqw">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="362-H6-AkT">
+            <objects>
+                <navigationController id="Rhf-sS-cqw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tqf-6F-Mli">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="VAW-Rh-l63"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bl9-wd-21K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-905" y="288"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -22,37 +36,45 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="2H2-ZR-ivo" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
-                                <rect key="frame" x="0.0" y="40" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="64"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="ED2-K4-0S3" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
-                                <rect key="frame" x="0.0" y="168" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="212" width="375" height="64"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSK-Ud-hG2">
-                                <rect key="frame" x="60" y="449" width="255" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSK-Ud-hG2">
+                                <rect key="frame" x="-14" y="493" width="403" height="30"/>
                                 <state key="normal" title="Toggle color style in second text field"/>
                                 <connections>
                                     <action selector="toggleStyle:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="miU-dZ-QCM"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="x9I-2w-m4z" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
-                                <rect key="frame" x="0.0" y="232" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="276" width="375" height="64"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="tDF-RA-5je" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
-                                <rect key="frame" x="0.0" y="104" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="148" width="375" height="64"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="18e-se-gd0" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
-                                <rect key="frame" x="0.0" y="296" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="340" width="375" height="64"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="562-Pg-j6A">
-                                <rect key="frame" x="94.5" y="411" width="186" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="562-Pg-j6A">
+                                <rect key="frame" x="94.5" y="455" width="186" height="30"/>
                                 <state key="normal" title="Show error in first text field"/>
                                 <connections>
                                     <action selector="showError:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wcy-bk-mrX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qi3-t1-epJ">
+                                <rect key="frame" x="128.5" y="543" width="118.5" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Second Test"/>
+                                <connections>
+                                    <action selector="pushToNext:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Z6d-Fa-aB3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,14 +89,17 @@
                             <constraint firstItem="ED2-K4-0S3" firstAttribute="top" secondItem="tDF-RA-5je" secondAttribute="bottom" id="8Pe-h5-HAk"/>
                             <constraint firstItem="tDF-RA-5je" firstAttribute="top" secondItem="2H2-ZR-ivo" secondAttribute="bottom" id="Enn-kU-JEA"/>
                             <constraint firstAttribute="trailing" secondItem="tDF-RA-5je" secondAttribute="trailing" id="FaH-jU-SYY"/>
+                            <constraint firstItem="qi3-t1-epJ" firstAttribute="centerX" secondItem="BSK-Ud-hG2" secondAttribute="centerX" id="Hv0-G2-1ph"/>
                             <constraint firstAttribute="trailing" secondItem="x9I-2w-m4z" secondAttribute="trailing" id="MIu-iq-moL"/>
                             <constraint firstItem="2H2-ZR-ivo" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="We0-cg-cpN"/>
                             <constraint firstItem="x9I-2w-m4z" firstAttribute="top" secondItem="ED2-K4-0S3" secondAttribute="bottom" id="XZz-zE-2gt"/>
                             <constraint firstItem="x9I-2w-m4z" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="YG8-eX-b01"/>
+                            <constraint firstItem="qi3-t1-epJ" firstAttribute="top" secondItem="BSK-Ud-hG2" secondAttribute="bottom" constant="20" id="ZIj-41-5aF"/>
                             <constraint firstItem="18e-se-gd0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Zq7-t3-edI"/>
                             <constraint firstItem="ED2-K4-0S3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="dCq-BD-VaO"/>
                             <constraint firstAttribute="trailing" secondItem="18e-se-gd0" secondAttribute="trailing" id="eQz-0w-rH7"/>
                             <constraint firstItem="tDF-RA-5je" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ih6-E8-7gr"/>
+                            <constraint firstItem="qi3-t1-epJ" firstAttribute="width" secondItem="BSK-Ud-hG2" secondAttribute="width" multiplier="0.294118" id="lPC-L3-OTJ"/>
                             <constraint firstItem="BSK-Ud-hG2" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="nhQ-gA-VQv"/>
                             <constraint firstItem="18e-se-gd0" firstAttribute="top" secondItem="x9I-2w-m4z" secondAttribute="bottom" id="tjZ-Vd-ILh"/>
                             <constraint firstAttribute="trailing" secondItem="ED2-K4-0S3" secondAttribute="trailing" id="y7Y-mD-Z6X"/>
@@ -83,6 +108,7 @@
                             <outletCollection property="gestureRecognizers" destination="13H-Yl-Nte" appends="YES" id="YmL-ZU-lsa"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="RNH-U9-F4E"/>
                     <connections>
                         <outletCollection property="textInputs" destination="2H2-ZR-ivo" collectionClass="NSMutableArray" id="inG-zk-ZZn"/>
                         <outletCollection property="textInputs" destination="tDF-RA-5je" collectionClass="NSMutableArray" id="Wdb-cS-lWL"/>
