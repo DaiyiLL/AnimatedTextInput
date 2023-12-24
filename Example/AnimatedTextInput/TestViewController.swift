@@ -27,8 +27,14 @@ class TestViewController: UIViewController {
             
             
         let input = AnimatedTextInput(frame: CGRect(x: 10, y: 100, width: self.view.bounds.width - 20, height: 58), style: style)
-        input.placeHolderText = "daishuyi"
+        input.placeHolderText = "Please Enter your phone"
+        input.isHiddenLine = true
         self.view.addSubview(input)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.view.endEditing(true)
     }
 }
 

@@ -285,7 +285,11 @@ open class AnimatedTextInput: UIControl {
     }
 
     fileprivate func layoutPlaceholderLayer() {
-        placeholderLayer.frame = CGRect(origin: placeholderPosition, size: CGSize(width: bounds.width, height: (style.textInputFont.pointSize * CGFloat(self.frameHeightCorrectionFactor)) ))
+        let layerFrame = CGRect(origin: placeholderPosition, size: CGSize(width: bounds.width, height: (style.textInputFont.pointSize * CGFloat(self.frameHeightCorrectionFactor)) ))
+        if (layerFrame.equalTo(self.placeholderLayer.frame)) {
+            return;
+        }
+        placeholderLayer.frame = layerFrame
     }
 
     // mark: Configuration
@@ -463,7 +467,10 @@ open class AnimatedTextInput: UIControl {
         let firstResponder = textInput.view.becomeFirstResponder()
         counterLabel.textColor = style.activeColor
         placeholderErrorText = nil
-        animatePlaceholder(to: configurePlaceholderAsActiveHint)
+        DispatchQueue.main.async {
+            self.animatePlaceholder(to: self.configurePlaceholderAsActiveHint)
+        }
+        
         return firstResponder
     }
 
@@ -491,11 +498,13 @@ open class AnimatedTextInput: UIControl {
     }
 
     fileprivate func animateToInactiveState() {
-        guard let text = textInput.currentText, !text.isEmpty else {
-            animatePlaceholder(to: configurePlaceholderAsDefault)
-            return
+        var tempFunc = configurePlaceholderAsDefault
+        if let text = textInput.currentText, !text.isEmpty {
+            tempFunc = configurePlaceholderAsInactiveHint
         }
-        animatePlaceholder(to: configurePlaceholderAsInactiveHint)
+        DispatchQueue.main.async {
+            self.animatePlaceholder(to: tempFunc)
+        }
     }
 
     override open var canResignFirstResponder: Bool {
@@ -515,7 +524,9 @@ open class AnimatedTextInput: UIControl {
         if let textInput = textInput as? TextInputError {
             textInput.configureErrorState(with: placeholderText)
         }
-        animatePlaceholder(to: configurePlaceholderAsErrorHint)
+        DispatchQueue.main.async {
+            self.animatePlaceholder(to: self.configurePlaceholderAsErrorHint)
+        }
     }
 
     open func clearError() {
@@ -524,7 +535,9 @@ open class AnimatedTextInput: UIControl {
             textInputError.removeErrorHintMessage()
         }
         if isActive {
-            animatePlaceholder(to: configurePlaceholderAsActiveHint)
+            DispatchQueue.main.async {
+                self.animatePlaceholder(to: self.configurePlaceholderAsActiveHint)
+            }
         } else {
             animateToInactiveState()
         }
